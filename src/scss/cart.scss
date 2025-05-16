@@ -1,0 +1,364 @@
+$primary-color: #4a90e2;
+$secondary-color: #f44336;
+$border-color: #e0e0e0;
+$text-color: #333;
+$light-gray: #f5f5f5;
+$checked-color: #f0f7ff;
+
+.cart-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'Noto Sans KR', sans-serif;
+  color: $text-color;
+  background-color: white;
+  min-height: 100vh;
+}
+
+.cart-header {
+  padding: 20px;
+  border-bottom: 1px solid $border-color;
+  
+  h1 {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0 0 10px 0;
+  }
+
+  .header-sub {
+    display: flex;
+    gap: 15px;
+    font-size: 14px;
+    color: #666;
+  }
+}
+
+.cart-layout {
+  display: flex;
+  padding: 20px;
+  gap: 30px;
+}
+
+/* 왼쪽: 장바구니 아이템 목록 */
+.cart-items-section {
+  flex: 2;
+}
+
+.management-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+
+  h2 {
+    font-size: 20px;
+    margin: 0;
+  }
+
+  .management-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    .select-all {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 14px;
+
+      input {
+        width: 18px;
+        height: 18px;
+      }
+    }
+
+    .delete-btn {
+      background: none;
+      border: none;
+      color: $secondary-color;
+      font-size: 14px;
+      cursor: pointer;
+      padding: 5px;
+    }
+  }
+}
+
+.items-list {
+  .cart-item {
+    display: flex;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid $border-color;
+    border-radius: 8px;
+    background-color: white;
+    transition: all 0.2s;
+
+    &.checked {
+      background-color: $checked-color;
+      border-color: $primary-color;
+    }
+
+    .item-check {
+      display: flex;
+      align-items: flex-start;
+      margin-right: 15px;
+
+      input {
+        width: 18px;
+        height: 18px;
+        margin-top: 3px;
+      }
+    }
+
+    .item-details {
+      flex: 1;
+
+      .item-name {
+        margin: 0 0 5px 0;
+        font-size: 16px;
+        font-weight: bold;
+      }
+
+      .item-variant, .item-info {
+        margin: 0 0 5px 0;
+        font-size: 14px;
+        color: #666;
+      }
+
+      .item-price-info {
+        margin-top: 10px;
+
+        .original-price {
+          text-decoration: line-through;
+          color: #999;
+          margin-right: 8px;
+          font-size: 14px;
+        }
+
+        .discount-price {
+          font-weight: bold;
+          margin-right: 8px;
+        }
+
+        .discount-rate {
+          color: $secondary-color;
+          font-weight: bold;
+        }
+      }
+    }
+
+    .item-quantity {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 100px;
+      gap: 8px;
+
+      button {
+        width: 28px;
+        height: 28px;
+        border: 1px solid $border-color;
+        background: white;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.2s;
+
+        &:hover {
+          background-color: $light-gray;
+        }
+      }
+
+      span {
+        min-width: 20px;
+        text-align: center;
+      }
+    }
+  }
+}
+
+/* 오른쪽: 계산 및 주문 섹션 */
+.order-summary-section {
+  flex: 1;
+  position: sticky;
+  top: 20px;
+  height: fit-content;
+
+  .order-summary {
+    border: 1px solid $border-color;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+
+    h3 {
+      font-size: 18px;
+      margin-top: 0;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid $border-color;
+    }
+
+    .price-details {
+      .price-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 12px;
+        font-size: 15px;
+
+        &.total {
+          font-weight: bold;
+          font-size: 18px;
+          margin-top: 15px;
+          padding-top: 15px;
+          border-top: 1px solid $border-color;
+        }
+      }
+    }
+
+    .order-button {
+      width: 100%;
+      padding: 15px;
+      background-color: $primary-color;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: darken($primary-color, 10%);
+      }
+    }
+  }
+
+  .delivery-info {
+    border: 1px solid $border-color;
+    border-radius: 8px;
+    padding: 15px;
+    font-size: 14px;
+
+    h4 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 15px;
+    }
+
+    p {
+      margin: 5px 0;
+      color: #666;
+    }
+  }
+}
+/* cart.scss */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); // 반투명 배경
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+ 
+  &.show {
+    opacity: 1;
+    pointer-events: auto;
+    
+  }
+}
+
+.modal {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.3s ease-out;
+  overflow-y: auto;
+  height: 90vh;
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  h3 {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+
+  p {
+    margin: 0.5rem 0;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      margin: 0.3rem 0;
+    }
+  }
+
+  span {
+    display: block;
+    font-weight: bold;
+    margin-top: 1rem;
+  }
+
+  div {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+
+    button {
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.2s;
+
+      &:first-of-type {
+        background-color: #007bff;
+        color: white;
+
+        &:hover {
+          background-color: #0056b3;
+        }
+      }
+
+      &:last-of-type {
+        background-color: #ccc;
+
+        &:hover {
+          background-color: #999;
+        }
+      }
+    }
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

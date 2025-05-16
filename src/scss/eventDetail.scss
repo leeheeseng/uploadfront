@@ -1,0 +1,287 @@
+.event-detail-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    font-family: 'Pretendard', 'Noto Sans KR', 'Arial', sans-serif;
+    color: #333;
+    animation: fadeIn 0.6s ease;
+  
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  
+    .event-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      color: #222;
+      position: relative;
+      padding-bottom: 1rem;
+      line-height: 1.3;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(90deg, #667eea, #764ba2);
+        border-radius: 2px;
+      }
+    }
+  
+    .event-header {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+      position: relative;
+  
+      .event-main-image {
+        width: 100%;
+        height: 500px;
+        object-fit: cover;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        transition: transform 0.5s ease, box-shadow 0.5s ease;
+        
+        &:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+      }
+  
+      .event-meta {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        padding: 0 0.5rem;
+  
+        .event-status {
+          padding: 0.5rem 1.2rem;
+          border-radius: 50px;
+          font-size: 0.9rem;
+          font-weight: 700;
+          color: rgb(0, 0, 0);
+          text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+          box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+          
+          &.진행중 { 
+            background: linear-gradient(135deg, #4CAF50 0%, #81C784 100%);
+          }
+          &.종료됨 { 
+            background: linear-gradient(135deg, #f44336 0%, #e57373 100%);
+          }
+          &.예정 { 
+            background: linear-gradient(135deg, #2196F3 0%, #64B5F6 100%);
+          }
+        }
+  
+        .event-period {
+          font-size: 1.1rem;
+          color: #555;
+          display: flex;
+          align-items: center;
+          
+          &::before {
+            content: '📅';
+            margin-right: 0.5rem;
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+  
+    .event-content {
+      background: white;
+      border-radius: 12px;
+      padding: 2.5rem;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+      margin-bottom: 3rem;
+      line-height: 1.7;
+  
+      h2 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        color: #222;
+        position: relative;
+        padding-bottom: 0.8rem;
+        
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 50px;
+          height: 3px;
+          background: linear-gradient(90deg, #667eea, #764ba2);
+          border-radius: 2px;
+        }
+      }
+  
+      p {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+        color: #444;
+      }
+  
+      .event-details {
+        background: #f9f9ff;
+        border-radius: 8px;
+        padding: 1.5rem 2rem;
+        border-left: 4px solid #667eea;
+        
+        h3 {
+          font-size: 1.3rem;
+          font-weight: 600;
+          margin-bottom: 1rem;
+          color: #444;
+        }
+  
+        ol {
+          padding-left: 1.5rem;
+          
+          li {
+            margin-bottom: 0.8rem;
+            padding-left: 0.5rem;
+            font-size: 1rem;
+            color: #555;
+            
+            &::marker {
+              color: #667eea;
+              font-weight: bold;
+            }
+          }
+        }
+      }
+    }
+  
+    .back-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 1rem 2rem;
+      background: white;
+      border: 2px solid #667eea;
+      border-radius: 50px;
+      color: #667eea;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin: 0 auto;
+      width: fit-content;
+      
+      &:hover {
+        background: #667eea;
+        color: white;
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+      }
+      
+      &:active {
+        transform: translateY(0);
+      }
+      
+      &::before {
+        content: '←';
+        font-size: 1.2rem;
+      }
+    }
+  }
+  
+  .loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-size: 1.5rem;
+    color: #667eea;
+    font-weight: 600;
+  }
+  
+  /* 반응형 디자인 */
+  @media (max-width: 1024px) {
+    .event-detail-container {
+      .event-header {
+        .event-main-image {
+          height: 400px;
+        }
+      }
+      
+      .event-content {
+        padding: 2rem;
+      }
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .event-detail-container {
+      padding: 1.5rem;
+      
+      .event-title {
+        font-size: 2rem;
+      }
+      
+      .event-header {
+        .event-main-image {
+          height: 350px;
+        }
+        
+        .event-meta {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 1rem;
+        }
+      }
+      
+      .event-content {
+        padding: 1.5rem;
+        
+        h2 {
+          font-size: 1.5rem;
+        }
+        
+        p {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .event-detail-container {
+      padding: 1rem;
+      
+      .event-title {
+        font-size: 1.8rem;
+      }
+      
+      .event-header {
+        .event-main-image {
+          height: 250px;
+        }
+      }
+      
+      .event-content {
+        padding: 1.2rem;
+        
+        h2 {
+          font-size: 1.3rem;
+        }
+        
+        .event-details {
+          padding: 1rem;
+        }
+      }
+      
+      .back-button {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+      }
+    }
+  }

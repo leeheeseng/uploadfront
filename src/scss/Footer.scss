@@ -1,0 +1,190 @@
+/* 기본 스타일 */
+.footer_body {
+    background-color: #f8f8f8; // 배경색 조정 (밝은 회색)
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    font-size: 14px; // 기본 폰트 크기 조정
+    color: #333; // 기본 폰트 색상 조정
+    width: 1200px;
+    margin: 0 auto;
+  margin-top: 40px;
+  
+    .footer_inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+  
+      .top_row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center; // 로고와 오른쪽 요소를 수직 중앙 정렬
+      }
+  
+      .logo_box img {
+        max-width: 150px;
+      }
+  
+      .right_box {
+        display: flex;
+        align-items: center; // 패밀리 사이트와 공유 버튼을 수직 중앙 정렬
+        gap: 20px; // 패밀리 사이트와 공유 버튼 사이 간격
+      }
+  
+      .family_site_box {
+        position: relative;
+  
+        .btn_family_site {
+          background-color: #333;
+          color: #fff;
+          border: none;
+          padding: 10px 20px;
+          cursor: pointer;
+          font-size: 14px; // 버튼 폰트 크기 조정
+        }
+  
+        .family_site_list {
+          position: absolute;
+          bottom: 100%; // 위로 열리도록 변경
+          left: 0;
+          background-color: #fff;
+          border: 1px solid #ddd;
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          width: 200px;
+          z-index: 10;
+          max-height: 0; // 초기 높이 0
+          overflow: hidden; // 내용 숨김
+          transition: max-height 0.3s ease-out; // 애니메이션 추가
+        }
+  
+        &.open .family_site_list {
+          max-height: 300px; // 최대 높이 설정 (필요에 따라 조정)
+        }
+  
+        .family_site_item {
+          padding: 10px;
+          border-bottom: 1px solid #ddd;
+  
+          &:last-child {
+            border-bottom: none;
+          }
+  
+          .family_site_link {
+            color: #333;
+            text-decoration: none;
+            font-size: 14px; // 링크 폰트 크기 조정
+          }
+        }
+      }
+  
+      .sns_share_box {
+        display: flex;
+        gap: 10px;
+  
+        .btn_sns_share {
+          width: 30px;
+          height: 30px;
+          background-color: #333;
+          color: #fff;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-decoration: none;
+          font-size: 14px; // 공유 버튼 폰트 크기 조정
+        }
+      }
+  
+      .footer_contents_wrap {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+  
+        .footer_contents_left {
+          .footer_menu_box {
+            .footer_menu_list {
+              display: flex;
+              gap: 20px;
+              list-style: none;
+              padding: 0;
+  
+              .footer_menu_item {
+                .footer_menu_link {
+                  color: #333;
+                  text-decoration: none;
+                  font-size: 12px; // 메뉴 폰트 크기 조정
+                }
+  
+                &.privacy {
+                  /* 개인정보처리방침에 대한 추가 스타일 */
+                }
+              }
+            }
+          }
+  
+          .footer_info_box {
+            margin-top: 10px;
+            font-size: 12px; // 정보 텍스트 폰트 크기 조정
+            color: #666;
+  
+            .info_text {
+              &.call {
+                /* 대표전화에 대한 추가 스타일 */
+              }
+            }
+  
+            .btn_footer_link {
+              /* 사업자정보확인 버튼에 대한 추가 스타일 */
+              font-size: 12px; // 버튼 폰트 크기 조정
+            }
+          }
+  
+          .copyright {
+            margin-top: 10px;
+            font-size: 12px; // 저작권 텍스트 폰트 크기 조정
+            color: #666;
+          }
+        }
+  
+        .footer_contents_right {
+          .footer_service {
+            background-color: #fff;
+            padding: 10px;
+            font-size: 14px; // 서비스 텍스트 폰트 크기 조정
+  
+            .service_text {
+              /* 토스페이먼츠 구매안전서비스 텍스트 스타일 */
+            }
+  
+            .btn_footer_link {
+              /* 서비스 가입 확인 버튼 스타일 */
+              font-size: 14px; // 버튼 폰트 크기 조정
+            }
+  
+            .service_desc {
+              /* 설명 텍스트 스타일 */
+              font-size: 12px; // 설명 텍스트 폰트 크기 조정
+            }
+          }
+  
+          .footer_mark_isms {
+            margin-top: 10px;
+            font-size: 12px; // ISMS 텍스트 폰트 크기 조정
+            color: #666;
+  
+            .mark_link {
+              /* 정보보호관리체계 링크 스타일 */
+              font-size: 12px; // 링크 폰트 크기 조정
+            }
+  
+            .mark_desc {
+              /* 설명 텍스트 스타일 */
+              font-size: 12px; // 설명 텍스트 폰트 크기 조정
+            }
+          }
+        }
+      }
+    }
+  }

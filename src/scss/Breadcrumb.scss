@@ -1,0 +1,134 @@
+// Variables
+$breadcrumb-bg: #f8f9fa;
+$breadcrumb-padding: 0.75rem 1rem;
+$breadcrumb-divider-color: #6c757d;
+$breadcrumb-item-padding: 0.5rem;
+$breadcrumb-link-color: #007bff;
+$breadcrumb-link-hover-color: #0056b3;
+$breadcrumb-active-color: #6c757d;
+$breadcrumb-home-color: #000000;
+$breadcrumb-period-color: #e83e8c; // 주간/일간 표시 색상
+$breadcrumb-border-radius: 0.25rem;
+$breadcrumb-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+
+.breadcrumb {
+  background-color: $breadcrumb-bg;
+  padding: $breadcrumb-padding;
+  border-radius: $breadcrumb-border-radius;
+  box-shadow: $breadcrumb-box-shadow;
+  margin-bottom: 0;
+  padding: 0%;
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    align-items: center;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+
+    &--current {
+      .breadcrumb__text {
+        color: $breadcrumb-active-color;
+        font-weight: 500;
+        
+        // 베스트 페이지의 주간/일간 스타일
+        .best-page & {
+          color: $breadcrumb-period-color;
+          font-weight: 600;
+          background-color: rgba($breadcrumb-period-color, 0.1);
+          padding: 0.25rem 0.5rem;
+          border-radius: $breadcrumb-border-radius;
+        }
+      }
+    }
+  }
+
+  &__separator {
+    color: $breadcrumb-divider-color;
+    margin: 0 0.5rem;
+    user-select: none;
+    
+    // 베스트 페이지의 마지막 구분자 숨김
+    .best-page &:last-child {
+      display: none;
+    }
+  }
+
+  &__link {
+    color: $breadcrumb-divider-color;
+    text-decoration: none;
+    transition: color 0.2s ease, background-color 0.2s ease;
+    padding: $breadcrumb-item-padding;
+    border-radius: $breadcrumb-border-radius;
+
+    
+
+    &--home {
+      color: $breadcrumb-home-color;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+
+      &:hover {
+        color: darken($breadcrumb-home-color, 10%);
+      }
+    }
+  }
+
+  &__home-icon {
+    margin-right: 0.3rem;
+    font-size: 0.9em;
+  }
+
+  &__text {
+    white-space: nowrap;
+  }
+
+  // 베스트 페이지 전용 스타일
+  &--best {
+    .breadcrumb__item:nth-child(4) { // 주간/일간 아이템
+      .breadcrumb__text {
+        color: $breadcrumb-period-color;
+        font-weight: 600;
+      }
+    }
+  }
+
+  // 반응형 디자인
+  @media (max-width: 768px) {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+
+    &__separator {
+      margin: 0 0.3rem;
+    }
+
+    &__link {
+      padding: 0.3rem;
+    }
+
+    &__item--current {
+      .breadcrumb__text {
+        padding: 0.15rem 0.3rem;
+      }
+    }
+  }
+
+  @media (max-width: 576px) {
+    &__list {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      padding-bottom: 0.25rem;
+    }
+    
+    &__text {
+      white-space: nowrap;
+    }
+  }
+}

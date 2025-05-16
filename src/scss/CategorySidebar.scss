@@ -1,0 +1,116 @@
+// Variables
+$sidebar-bg: #ffffff;
+$border-color: #eaeaea;
+$primary-color: #3a86ff;
+$active-color: #ff6b6b;
+$secondary-color: #6c757d;
+$hover-bg: #f8f9fa;
+
+
+.category-sidebar {
+  display: flex;
+  width: 250px;
+  background: $sidebar-bg;
+  padding: 0;
+  border-right: 1px solid $border-color;
+  height: 100%;
+  box-sizing: border-box;
+
+  .sidebar-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .category-group {
+    margin-bottom: 1.5rem;
+
+    .upper-category {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #333;
+      padding: 0.7rem 0;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      transition: color 0.2s ease;
+      border-bottom: 1px solid $border-color;
+      width: 250px;
+
+      .expand-icon {
+        margin-left: 0.5rem;
+        font-weight: bold;
+        color: $secondary-color;
+        font-size: 0.9em;
+      }
+
+      &:hover {
+        color: $primary-color; // Hover 시 색상 변경
+        text-decoration: underline; // 밑줄 추가
+      }
+    }
+
+    .sub-category-list {
+      list-style: none;
+      padding: 0.5rem 0 0 0;
+      margin: 0;
+      width: 250px;
+
+      li {
+        padding: 0.6rem 1rem;
+        cursor: pointer;
+        color: $secondary-color;
+        transition: all 0.2s ease;
+        border-radius: 4px;
+        margin-bottom: 0.2rem;
+        display: flex;
+        align-items: center;
+
+        &:hover {
+          background-color: $hover-bg;
+          padding-left: 1rem;
+          color: $primary-color; // Hover 시 색상 변경
+        }
+
+        &.active {
+          font-weight: 600;
+          text-decoration: underline; // 활성화된 항목에 밑줄 추가
+          background-color: transparent;
+        }
+      }
+    }
+  }
+
+  // 반응형 디자인
+  @media (max-width: 768px) {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid $border-color;
+    padding: 1rem;
+
+    .sidebar-title {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+    .category-group {
+      margin-bottom: 1rem;
+
+      .upper-category {
+        font-size: 1rem;
+        padding: 0.5rem 0;
+        width: 250px;
+      }
+
+      .sub-category-item {
+        padding: 0.4rem 0.8rem;
+
+        &:hover {
+          padding-left: 0.8rem;
+        }
+      }
+    }
+  }
+}

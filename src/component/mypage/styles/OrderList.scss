@@ -1,0 +1,163 @@
+.order-list {
+  justify-content: center;
+  h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #343a40;
+  }
+
+  .order-date-box {
+    margin-bottom: 20px;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    overflow: hidden;
+
+    .order-items {
+      padding: 5px;
+
+      /* 주문일자와 삭제 버튼 */
+      .order-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 5px;
+        background-color: #f8f9fa;
+        border-bottom: 1px solid #dee2e6;
+
+        .order-date-id {
+          font-weight: 500;
+          color: #495057;
+        }
+
+        .delete-btn {
+          background: none;
+          border: none;
+          color: #dc3545;
+          cursor: pointer;
+          font-size: 14px;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+
+      /* 상품 항목 표시 */
+      .items-header {
+        display: grid;
+        grid-template-columns: 4fr 1.3fr 1.1fr 0.8fr;
+        padding: 8px 5px;
+        font-weight: 500;
+        border-bottom: 1px solid #dee2e6;
+        color: #495057;
+      }
+
+      .item-row {
+        display: grid;
+        grid-template-columns: 3fr 1fr 1fr 1fr;
+        padding: 10px 0;
+        align-items: center;
+        border-bottom: 1px solid #dee2e6;
+
+        .item-title,
+        .item-price,
+        .item-quantity,
+        .item-total {
+          font-size: 14px;
+          color: #495057;
+        }
+
+        .item-title {
+          font-weight: 500;
+        }
+
+        .item-price,
+        .item-quantity,
+        .item-total {
+          text-align: center;
+        }
+      }
+
+      /* 푸터 정보 */
+      .order-footer {
+        display: flex;
+        justify-content: space-between;
+        padding: 15px;
+        background-color: #f8f9fa;
+
+        .shipping-info {
+          h4 {
+            margin-bottom: 5px;
+            font-size: 16px;
+            color: #343a40;
+          }
+
+          p {
+            color: #6c757d;
+            margin: 0;
+          }
+        }
+
+        .order-buttons {
+          display: flex;
+          gap: 10px;
+
+          .action-button {
+            padding: 8px 16px;
+            background-color: #fff;
+            border: 1px solid #0d6efd;
+            color: #0d6efd;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+
+            &:hover {
+              background-color: #0d6efd;
+              color: white;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .order-footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    background-color: #f8f9fa;
+
+    .shipping-info {
+      h4 {
+        margin-bottom: 5px;
+        font-size: 16px;
+        color: #343a40;
+      }
+
+      p {
+        color: #6c757d;
+        margin: 0;
+      }
+    }
+
+    .order-buttons {
+      display: flex;
+      gap: 10px;
+
+      .action-button {
+        padding: 8px 16px;
+        background-color: #fff;
+        border: 1px solid #0d6efd;
+        color: #0d6efd;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.2s;
+
+        &:hover {
+          background-color: #0d6efd;
+          color: white;
+        }
+      }
+    }
+  }
+}

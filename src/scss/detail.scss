@@ -1,0 +1,727 @@
+/* ================ */
+/*  Variables       */
+/* ================ */
+$color-primary: #4a6bff;
+$color-secondary: #6c757d;
+$color-accent: #ff6b6b;
+$color-text: #2d3748;
+$color-text-light: #718096;
+$color-border: #e2e8f0;
+$color-bg-light: #f8fafc;
+$color-white: #ffffff;
+$radius-sm: 6px;
+$radius-md: 10px;
+$radius-lg: 14px;
+$shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+$shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+$space-unit: 16px;
+$border-default: 1px solid $color-border;
+
+/* ================ */
+/*  Mixins          */
+/* ================ */
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin card-style {
+  background: $color-white;
+  border-radius: $radius-md;
+  box-shadow: $shadow-sm;
+  border: $border-default;
+  transition: all 0.2s ease;
+  
+ 
+}
+
+@mixin responsive($breakpoint) {
+  @media (max-width: $breakpoint) {
+    @content;
+  }
+}
+
+/* ================ */
+/*  Base Styles     */
+/* ================ */
+.book-detail-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: $space-unit * 1.5;
+  font-family: 'Noto Sans KR', 'Segoe UI', sans-serif;
+  color: $color-text;
+  display: grid;
+  gap: $space-unit * 2;
+  background: $color-white;
+  border-radius: $radius-lg;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+}
+
+/* ================ */
+/*  Top Section     */
+/* ================ */
+.book-detail-top {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $space-unit * 2;
+  text-align: center;
+
+  @include responsive(768px) {
+    grid-template-columns: 1fr;
+    gap: $space-unit;
+  }
+}
+
+/* Book Basic Info */
+.book-basic-section {
+  @include flex-column;
+  @include card-style;
+  gap: $space-unit;
+  align-items: center;
+  padding: $space-unit * 1.5;
+  position: relative;
+  overflow: hidden;
+
+  .book-title {
+    font-size: 1.75rem;
+    font-weight: 800;
+    margin: 0;
+    line-height: 1.3;
+    color: $color-primary;
+    position: relative;
+    display: inline-block;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50px;
+      height: 3px;
+      background: $color-primary;
+      border-radius: 3px;
+    }
+  }
+
+  .book-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: $space-unit/2;
+    font-size: 0.95rem;
+    color: $color-text-light;
+    justify-content: center;
+
+    .review-btn {
+      padding: 0.5rem 1rem;
+      background: $color-primary;
+      color: $color-white;
+      border: none;
+      border-radius: $radius-sm;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-weight: 600;
+
+      &:hover {
+        background: darken($color-primary, 10%);
+      }
+    }
+  }
+
+  .book-cover-container {
+    width: 200px;
+    margin-top: $space-unit;
+    position: relative;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      right: -10px;
+      bottom: -10px;
+      background: linear-gradient(45deg, $color-primary, $color-accent);
+      z-index: -1;
+      border-radius: $radius-md;
+      opacity: 0.2;
+    }
+
+    .book-cover {
+      width: 100%;
+      height: auto;
+      border-radius: $radius-sm;
+      box-shadow: $shadow-md;
+      border: 2px solid $color-white;
+    }
+  }
+}
+
+/* Price & Tags */
+.price-tag-section {
+  @include flex-column;
+  @include card-style;
+  gap: $space-unit;
+  align-self: start;
+  padding: $space-unit * 1.5;
+  background: linear-gradient(135deg, $color-white, $color-bg-light);
+
+  .tag-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $space-unit/2;
+    justify-content: center;
+
+    .tag {
+      padding: 0.4rem 1rem;
+      background: rgba($color-primary, 0.1);
+      color: $color-primary;
+      border-radius: $radius-sm;
+      font-size: 0.8rem;
+      font-weight: 600;
+      border: none;
+    }
+  }
+
+  .price-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $space-unit/2;
+
+    .discount-rate {
+      font-size: 1rem;
+      font-weight: 700;
+      color: $color-accent;
+      background: rgba($color-accent, 0.1);
+      padding: 0.2rem 0.8rem;
+      border-radius: $radius-sm;
+    }
+
+    .discounted-price {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: $color-text;
+    }
+
+    .original-price {
+      text-decoration: line-through;
+      color: $color-text-light;
+      font-size: 1rem;
+    }
+  }
+
+  .action-buttons {
+    display: flex;
+    gap: $space-unit/2;
+    margin-top: $space-unit;
+
+    button {
+      flex: 1;
+      padding: 0.75rem;
+      border: none;
+      border-radius: $radius-sm;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      
+      &:first-child {
+        background: $color-primary;
+        color: $color-white;
+        
+        &:hover {
+          background: darken($color-primary, 10%);
+        }
+      }
+      
+      &:last-child {
+        background: $color-white;
+        border: 1px solid $color-primary;
+        color: $color-primary;
+        
+        &:hover {
+          background: rgba($color-primary, 0.1);
+        }
+      }
+    }
+  }
+}
+
+/* Events */
+.event-section {
+  grid-column: 1 / -1;
+  margin-top: $space-unit;
+  @include card-style;
+  padding: $space-unit * 1.5;
+
+  .section-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: $space-unit;
+    color: $color-primary;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $space-unit/2;
+    
+    &::before, &::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: $color-border;
+    }
+  }
+
+  .event-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: $space-unit;
+
+    @include responsive(480px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .event-card {
+      @include flex-column;
+      @include card-style;
+      align-items: center;
+      gap: $space-unit/2;
+      padding: $space-unit;
+      border: none;
+      text-decoration: none;
+      color: $color-text;
+
+      .event-image {
+        width: 100%;
+        aspect-ratio: 3/4;
+        object-fit: cover;
+        border-radius: $radius-sm;
+        border: none;
+      }
+
+      .event-title {
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-align: center;
+        margin-top: $space-unit/2;
+      }
+    }
+  }
+}
+
+/* ================ */
+/*  Bottom Section  */
+/* ================ */
+.book-detail-bottom {
+  @include flex-column;
+  gap: $space-unit * 2;
+  text-align: left;
+}
+
+/* Author Info */
+.author-section {
+  @include card-style;
+  padding: $space-unit * 1.5;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to bottom, $color-primary, $color-accent);
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: $space-unit;
+    color: $color-primary;
+    padding-left: $space-unit;
+    position: relative;
+  }
+
+  .author-profile {
+    display: flex;
+    gap: $space-unit * 1.5;
+    margin-bottom: $space-unit * 1.5;
+
+    @include responsive(600px) {
+      flex-direction: column;
+    }
+
+    .author-text-info {
+      flex: 1;
+
+      .author-name {
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin: 0 0 $space-unit/2 0;
+        color: $color-text;
+      }
+
+      .author-job, 
+      .author-degree {
+        color: $color-text-light;
+        margin: 0 0 $space-unit/4 0;
+        font-size: 0.95rem;
+        
+        &::before {
+          content: '•';
+          margin: 0 0.5rem;
+          color: $color-border;
+        }
+      }
+    }
+
+    .author-image-container {
+      position: relative;
+      width: 120px;
+      height: 120px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      border: 3px solid $color-white;
+      box-shadow: $shadow-sm;
+
+      .author-image {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+        border: none;
+      }
+
+      .education-badge {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        background: $color-accent;
+        color: $color-white;
+        padding: 0.3rem 0.8rem;
+        border-radius: 1rem;
+        font-size: 0.75rem;
+        font-weight: 600;
+        box-shadow: $shadow-sm;
+        border: none;
+      }
+    }
+  }
+
+  .author-bio {
+    line-height: 1.7;
+    margin-bottom: $space-unit * 1.5;
+    font-size: 0.95rem;
+    color: $color-text;
+    background: rgba($color-primary, 0.05);
+    padding: $space-unit;
+    border-radius: $radius-sm;
+    border-left: 3px solid $color-primary;
+  }
+
+  .author-books-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: $space-unit;
+    border-top: $border-default;
+    padding-top: $space-unit;
+
+    .book-thumbnail {
+      @include flex-column;
+      align-items: center;
+      gap: $space-unit/2;
+      padding: $space-unit/2;
+      border-radius: $radius-sm;
+      transition: all 0.2s ease;
+      
+      &:hover {
+        transform: translateY(-5px);
+      }
+
+      .thumbnail-image {
+        width: 100%;
+        aspect-ratio: 3/4;
+        object-fit: cover;
+        border-radius: $radius-sm;
+        box-shadow: $shadow-sm;
+        border: 2px solid $color-white;
+      }
+
+      .thumbnail-title {
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-align: center;
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+}
+
+/* Book Details */
+.book-details-section {
+  @include card-style;
+  padding: $space-unit * 1.5;
+
+  .section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: $space-unit;
+    color: $color-primary;
+    display: flex;
+    align-items: center;
+    
+    &::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: $color-border;
+      margin-left: $space-unit;
+    }
+  }
+
+  .author-note {
+    line-height: 1.7;
+    margin-bottom: $space-unit * 1.5;
+    font-size: 0.95rem;
+    color: $color-text;
+    padding-bottom: $space-unit;
+    border-bottom: $border-default;
+    font-style: italic;
+  }
+
+  .detail-subsection {
+    margin-bottom: $space-unit * 1.5;
+
+    .subsection-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: $space-unit/2;
+      color: $color-primary;
+      display: flex;
+      align-items: center;
+      gap: $space-unit/2;
+      
+      &::before {
+        content: '';
+        display: block;
+        width: 6px;
+        height: 6px;
+        background: $color-primary;
+        border-radius: 50%;
+      }
+    }
+
+    .contents-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      .content-item {
+        padding: $space-unit/2 0;
+        border-bottom: 1px solid $color-border;
+        font-size: 0.95rem;
+        display: flex;
+        align-items: center;
+        gap: $space-unit/2;
+        
+        &::before {
+          content: '•';
+          color: $color-primary;
+          font-weight: bold;
+        }
+      }
+    }
+
+    .metadata-container {
+      @include flex-column;
+      gap: $space-unit/2;
+      border-top: $border-default;
+      padding-top: $space-unit;
+
+      .metadata-item {
+        font-size: 0.95rem;
+        display: flex;
+        gap: $space-unit/2;
+        
+        strong {
+          font-weight: 600;
+          color: $color-primary;
+          min-width: 80px;
+        }
+      }
+    }
+  }
+}
+
+/* Reviews */
+.review-section {
+  @include card-style;
+  padding: $space-unit * 1.5;
+
+  .review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: $space-unit;
+    padding-bottom: $space-unit;
+    border-bottom: $border-default;
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: $color-primary;
+      margin: 0;
+    }
+
+    .review-stats {
+      display: flex;
+      align-items: center;
+      gap: $space-unit/2;
+      font-weight: 600;
+      
+      .rating {
+        color: $color-accent;
+        font-size: 1.2rem;
+      }
+    }
+  }
+
+  .review-form {
+    .star-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: #ccc;
+    transition: color 0.2s ease;
+  
+    &.filled {
+      color: gold;
+    }
+  
+    &:hover {
+      color: gold;
+    }
+  }
+  
+    @include flex-column;
+    gap: $space-unit;
+    margin-bottom: $space-unit * 1.5;
+    padding-bottom: $space-unit;
+    border-bottom: $border-default;
+
+    textarea {
+      width: 100%;
+      border: $border-default;
+      border-radius: $radius-sm;
+      resize: none;
+      min-height: 100px;
+      font-family: inherit;
+      
+      &:focus {
+        outline: none;
+        border-color: $color-primary;
+        box-shadow: 0 0 0 2px rgba($color-primary, 0.2);
+      }
+    }
+
+    button {
+      align-self: flex-end;
+      padding: 0.7rem 1.5rem;
+      background: $color-primary;
+      color: $color-white;
+      border: none;
+      border-radius: $radius-sm;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      
+     
+    }
+  }
+
+  .review-list {
+    .review-item {
+      padding: $space-unit 0;
+      border-bottom: $border-default;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      .reviewer-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: $space-unit/2;
+
+        .reviewer-id {
+          font-weight: 600;
+          font-size: 0.95rem;
+          color: $color-primary;
+        }
+
+        .review-date {
+          font-size: 0.8rem;
+          color: $color-text-light;
+        }
+      }
+
+      .review-content {
+        line-height: 1.7;
+        font-size: 0.95rem;
+        color: $color-text;
+      }
+    }
+  }
+
+  .no-reviews {
+    text-align: center;
+    padding: $space-unit;
+    color: $color-text-light;
+    font-style: italic;
+  }
+}
+
+/* 반응형 조정 */
+@include responsive(768px) {
+  .book-detail-container {
+    padding: $space-unit;
+    margin: 1rem;
+  }
+  
+  .price-tag-section {
+    .action-buttons {
+      flex-direction: column;
+    }
+  }
+  
+  .author-profile {
+    flex-direction: column;
+  }
+}
+
+@include responsive(480px) {
+  .book-basic-section {
+    .book-title {
+      font-size: 1.5rem;
+    }
+  }
+  
+  .event-section {
+    .event-container {
+      grid-template-columns: 1fr;
+    }
+  }
+}

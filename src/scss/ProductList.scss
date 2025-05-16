@@ -1,0 +1,116 @@
+.product-list-container {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start; // 상단 정렬
+    width: 100%;
+    position: relative;
+  
+    .main-slide-section {
+      flex: 1;
+      position: relative;
+      width: 60%; // 메인 슬라이드 영역 크기 조정
+      margin: 0 auto;
+  
+      .slide-button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        font-size: 24px;
+  
+        &:hover {
+          background: rgba(0, 0, 0, 0.8);
+        }
+  
+        &.prev {
+          left: 10px;
+        }
+  
+        &.next {
+          right: 10px;
+        }
+      }
+  
+      .product-list {
+        display: flex;
+        overflow: hidden;
+  
+        .product-item {
+          flex: 0 0 100%;
+          transition: transform 0.5s ease;
+          display: none; // 기본적으로 숨김
+  
+          &.active {
+            display: block; // 활성화된 슬라이드만 표시
+          }
+        }
+      }
+    }
+  
+    .side-list-section {
+      width: 40%; // 사이드 목록 영역 크기 조정
+      margin-top: 20px; // 메인 슬라이드와 간격 조정
+  
+      h3 {
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+  
+      .side-product-list {
+        display: flex;
+        flex-direction: row; // 가로로 배치
+        gap: 10px; // 아이템 간 간격
+        overflow-x: auto; // 가로 스크롤 가능
+  
+        .side-product-item {
+          cursor: pointer;
+          padding: 10px;
+          border: 1px solid #ddd;
+          border-radius: 5px;
+          transition: background 0.3s ease;
+          flex: 0 0 30%; // 아이템 너비 조정 (3개씩 표시)
+          text-align: center;
+  
+          &:hover {
+            background: #f5f5f5;
+          }
+  
+          .side-product-thumb img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+          }
+  
+          .side-product-info h4 {
+            margin: 10px 0 0;
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+  
+  // 반응형 디자인을 위한 미디어 쿼리
+  @media (max-width: 768px) {
+    .product-list-container {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .main-slide-section {
+      width: 100%; // 모바일에서 메인 슬라이드 영역을 전체 너비로 조정
+    }
+  
+    .side-list-section {
+      width: 100%; // 모바일에서 사이드 목록 영역을 전체 너비로 조정
+  
+      .side-product-list {
+        flex-direction: row; // 모바일에서도 가로로 배치
+        overflow-x: auto; // 가로 스크롤 가능
+      }
+    }
+  }

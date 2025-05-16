@@ -1,0 +1,84 @@
+$bg-color: #ffffff;
+$bg-hover: #eaeaea;
+$box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+$border-radius: 15px;
+$icon-size: 32px;
+$menu-item-size: 80px;
+$ad-width: 120px;
+$ad-height: 80px;
+
+.quick-menu-container {
+    justify-content: space-around;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px;
+  background-color: $bg-color;
+  border-radius: 8px;
+  box-shadow: $box-shadow;
+}
+
+.quick-menu-list {
+  display: flex;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  flex-wrap: nowrap;
+}
+
+.quick-menu-item {
+  width: $menu-item-size;
+  height: $menu-item-size;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #f9f9f9;
+  border-radius: $border-radius;
+  text-align: center;
+  transition: 0.3s ease-in-out;
+
+  &:hover {
+    background: $bg-hover;
+  }
+
+  a {
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .quick-menu-icon {
+    img {
+      width: $icon-size;
+      height: $icon-size;
+    }
+  }
+
+  .quick-menu-text {
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 5px;
+  }
+}
+
+/* 광고 공간 */
+.quick-menu-ad {
+  width: $ad-width;
+  height: $ad-height;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e0e0e0;
+  border-radius: $border-radius;
+  font-size: 14px;
+  color: #666;
+  font-weight: bold;
+
+  .ad-placeholder {
+    text-align: center;
+  }
+}

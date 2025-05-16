@@ -1,0 +1,18 @@
+.mypage-wrapper {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  > * {
+    width: 100%;
+  }
+
+  // Header와 Footer 사이의 내용이 자동으로 늘어나도록
+  main {
+    flex: 1;
+  }
+}

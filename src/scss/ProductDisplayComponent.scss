@@ -1,0 +1,581 @@
+// ------------------ 👇 Book Main ------------------
+
+.book-main {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background-color: #fff;
+  max-width: 1200px;
+  margin: 20px auto;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .book-image-container {
+    flex-shrink: 0;
+
+    .book-image {
+      width: 160px;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 8px;
+
+      @media (max-width: 768px) {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+
+  .book-details {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .book-tags {
+      margin-bottom: 8px;
+    }
+
+    .book-link {
+      text-decoration: none;
+
+      .book-title {
+        font-size: 1.25rem;
+        font-weight: bold;
+        color: #333;
+        margin: 0 0 0.25rem;
+      }
+    }
+
+    .book-author {
+      color: #777;
+      font-size: 0.9rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .book-pricing {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 0.75rem;
+
+      .original-price {
+        text-decoration: line-through;
+        color: #999;
+        font-size: 0.9rem;
+      }
+
+      .discount-info {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        .discounted-price {
+          font-weight: bold;
+          font-size: 1.1rem;
+          color: #e60023;
+        }
+
+        .discount-badge {
+          background-color: #ffe5e5;
+          color: #e60023;
+          font-size: 0.75rem;
+          padding: 0.25rem 0.5rem;
+          border-radius: 4px;
+        }
+      }
+    }
+
+    .review-stars {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      color: #f5a623 !important;
+
+      svg {
+        width: 1em;
+        height: 1em;
+        color: #f5a623 !important;
+      }
+
+      .half-filled {
+        color: #f5a62380 !important;
+      }
+
+      .score-text {
+        margin-left: 0.5rem;
+        color: #333 !important;
+        font-size: 0.9rem;
+      }
+    }
+
+    .cart-button {
+      background-color: #f0f0f0;
+      color: #333;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: #ddd;
+      }
+
+      &:active {
+        background-color: #bbb;
+      }
+    }
+  }
+
+  .book-sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    @media (max-width: 768px) {
+      width: 100%;
+      align-items: center;
+      margin-top: 1rem;
+    }
+
+    .delivery-info {
+      font-size: 0.9rem;
+      color: #4caf50;
+      margin-bottom: 1rem;
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 0.5rem;
+
+      button {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+
+        svg {
+          font-size: 1rem;
+        }
+      }
+
+      .cart-button {
+        background-color: #f0f0f0;
+        color: #333;
+        transition: background-color 0.3s;
+
+        &:hover {
+          background-color: #ddd;
+        }
+
+        &:active {
+          background-color: #bbb;
+        }
+      }
+
+      .buy-now-button {
+        background-color: #e60023;
+        color: #fff;
+        transition: background-color 0.3s;
+
+        &:hover {
+          background-color: #c5001e;
+        }
+
+        &:active {
+          background-color: #9b0015;
+        }
+      }
+    }
+  }
+}
+
+// ------------------ 👇 Grid View ------------------
+
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+  padding: 1.5rem;
+  max-width: 100%;
+  margin: 0 auto;
+  background-color: #fafafa;
+}
+
+.book-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  .select-checkbox {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 999;
+  }
+
+  .book-image-container {
+    position: relative;
+    text-align: center;
+    margin-bottom: 1rem;
+
+    .book-image {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .book-rank-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #e60023;
+      color: #fff;
+      padding: 0.25rem 0.5rem;
+      font-size: 0.75rem;
+      border-radius: 6px;
+    }
+  }
+
+  .book-tags {
+    margin-bottom: 0.5rem;
+
+    .book-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      color: #555;
+      background: #f0f0f0;
+      padding: 0.2rem 0.4rem;
+      margin-right: 0.3rem;
+      border-radius: 4px;
+    }
+  }
+
+  .book-link {
+    text-decoration: none;
+
+    .book-title {
+      font-size: 1rem;
+      font-weight: bold;
+      color: #222;
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  .book-meta {
+    font-size: 0.85rem;
+
+    .book-author {
+      color: #777;
+      margin-bottom: 0.5rem;
+    }
+
+    .book-pricing {
+      margin-bottom: 0.5rem;
+
+      .original-price {
+        text-decoration: line-through;
+        color: #999;
+        font-size: 0.85rem;
+      }
+
+      .discounted-price {
+        font-weight: bold;
+        color: #e60023;
+      }
+
+      .discount-badge {
+        background-color: #ffe5e5;
+        color: #e60023;
+        font-size: 0.75rem;
+        margin-left: 0.3rem;
+        padding: 0.2rem 0.4rem;
+        border-radius: 4px;
+      }
+    }
+
+    .review-stars {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      color: #ffb400 !important;
+
+      svg {
+        width: 1em;
+        height: 1em;
+        color: #ffb400 !important;
+      }
+
+      .half-filled {
+        color: #ffb40080 !important;
+      }
+
+      .score-text {
+        margin-left: 0.5rem;
+        color: #333 !important;
+        font-size: 0.9rem;
+      }
+    }
+  }
+
+  .cart-button {
+    background-color: #f1c40f;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    &:hover {
+      background-color: #e1b20f;
+      transform: scale(1.05);
+    }
+
+    &:active {
+      transform: scale(0.98);
+    }
+
+    svg {
+      font-size: 18px;
+    }
+
+    @media (max-width: 600px) {
+      padding: 8px 12px;
+      font-size: 12px;
+
+      svg {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .wishlist-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    color: #e60023;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+
+// ------------------ 👇 List View ------------------
+
+.product-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 100%;
+  margin: 0 auto;
+  background-color: #fafafa;
+}
+
+.product-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  padding: 1rem;
+  border-bottom: 1px solid #ddd;
+  min-height: 220px;
+
+  .product-main {
+    display: flex;
+    flex: 1;
+    gap: 1.5rem;
+    width: 330px;
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+
+    .product-image-container {
+      flex-shrink: 0;
+      width: 160px;
+      height: 220px;
+
+      .product-image {
+        height: 220px;
+        object-fit: cover;
+        border-radius: 8px;
+        width: 160px;
+
+        @media (max-width: 768px) {
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+
+    .product-details {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 0.5rem;
+
+      .product-tags {
+        margin-bottom: 0.5rem;
+
+        .product-tag {
+          display: inline-block;
+          font-size: 0.75rem;
+          color: #555;
+          background: #f0f0f0;
+          padding: 0.2rem 0.4rem;
+          margin-right: 0.3rem;
+          border-radius: 4px;
+        }
+      }
+
+      .product-link {
+        text-decoration: none;
+
+        .product-title {
+          font-size: 1.25rem;
+          font-weight: bold;
+          color: #333;
+          margin: 0;
+        }
+      }
+
+      .product-info {
+        color: #777;
+        font-size: 0.9rem;
+      }
+
+      .product-pricing {
+        .original-price {
+          text-decoration: line-through;
+          color: #999;
+          font-size: 0.9rem;
+        }
+
+        .discounted-price {
+          font-weight: bold;
+          font-size: 1.1rem;
+          color: #e60023;
+        }
+
+        .discount-badge {
+          background-color: #ffe5e5;
+          color: #e60023;
+          font-size: 0.75rem;
+          padding: 0.25rem 0.5rem;
+          border-radius: 4px;
+          margin-left: 0.5rem;
+        }
+      }
+
+      .review-stars {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        color: #ffb400 !important;
+
+        svg {
+          width: 1em;
+          height: 1em;
+          color: #ffb400 !important;
+        }
+
+        .half-filled {
+          color: #ffb40080 !important;
+        }
+
+        .score-text {
+          margin-left: 0.5rem;
+          color: #333 !important;
+          font-size: 0.9rem;
+        }
+      }
+    }
+  }
+
+  .product-sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    min-width: 120px;
+    padding-left: 1rem;
+
+    .delivery-info {
+      font-size: 0.9rem;
+      color: #4caf50;
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: auto;
+
+      button {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+
+        svg {
+          font-size: 1rem;
+        }
+      }
+
+      .cart-button {
+        background-color: #f0f0f0;
+        color: #333;
+        transition: background-color 0.3s;
+
+        &:hover {
+          background-color: #ddd;
+        }
+
+        &:active {
+          background-color: #bbb;
+        }
+      }
+
+      .buy-now-button {
+        background-color: #e60023;
+        color: #fff;
+        transition: background-color 0.3s;
+
+        &:hover {
+          background-color: #c5001e;
+        }
+
+        &:active {
+          background-color: #9b0015;
+        }
+      }
+    }
+
+    .cart-button {
+      margin-top: auto;
+      align-self: flex-end;
+    }
+  }
+}

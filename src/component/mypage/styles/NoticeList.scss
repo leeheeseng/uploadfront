@@ -1,0 +1,133 @@
+.notice-list {
+  h2 {
+    font-size: 26px;
+    margin-bottom: 30px;
+    color: #343a40;
+    text-align: center;
+    font-weight: 600;
+  }
+
+  .notice-header {
+    display: flex;
+    padding: 12px 0;
+    border-bottom: 2px solid #dee2e6;
+    font-weight: 500;
+    background-color: #f8f9fa;
+    color: #495057;
+
+    .header-title {
+      flex: 3;
+      padding-left: 20px;
+    }
+
+    .header-date {
+      flex: 1;
+      text-align: right;
+      padding-right: 20px;
+    }
+  }
+
+  .notice-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    .notice-item {
+      display: flex;
+      padding: 16px 20px;
+      border-bottom: 1px solid #f1f1f1;
+      align-items: center;
+      font-size: 16px;
+      color: #495057;
+
+      &:hover {
+        background-color: #f8f9fa;
+        cursor: pointer;
+      }
+
+      .notice-title {
+        flex: 3;
+        color: #495057;
+        font-weight: 600;
+      }
+
+      .notice-date {
+        flex: 1;
+        text-align: right;
+        color: #6c757d;
+        font-size: 14px;
+        padding-right: 20px;
+      }
+    }
+  }
+
+  .notice-navigation {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 30px;
+
+    .nav-button {
+      padding: 10px 20px;
+      background-color: #f8f9fa;
+      border: 1px solid #dee2e6;
+      border-radius: 4px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        background-color: #e9ecef;
+        border-color: #adb5bd;
+      }
+
+      &:disabled {
+        background-color: #e9ecef;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+ .perv{
+        width: 70px;
+      }
+      .next{
+        width: 70px;
+      }
+    button {
+      width: 35px;
+      height: 35px;
+      border: 1px solid #dee2e6;
+      background-color: #ffffff;
+      color: #495057;
+      text-align: center;
+      line-height: 35px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: all 0.2s ease;
+     
+      &:hover {
+        background-color: #e9ecef;
+        border-color: #adb5bd;
+      }
+
+      &.active {
+        background-color: #343a40;
+        color: #ffffff;
+        font-weight: bold;
+      }
+
+      &:disabled {
+        background-color: #e9ecef;
+        cursor: not-allowed;
+      }
+    }
+  }
+}
