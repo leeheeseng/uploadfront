@@ -1,0 +1,14 @@
+<svg width="160" height="80" viewBox="0 0 160 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 조정된 도트 매트릭스 패턴 -->
+  <path fill-rule="evenodd" clip-rule="evenodd" 
+        d="M30 20H50V30H30V20ZM70 20H90V30H70V20ZM110 20H130V30H110V20ZM30 40H50V50H30V40ZM70 40H90V50H70V40ZM110 40H130V50H110V40Z" 
+        fill="#081D58"/>
+  
+  <!-- 조정된 텍스트 위치 -->
+  <text x="30" y="70" 
+        font-family="'Noto Sans KR', sans-serif" 
+        font-size="24" 
+        font-weight="800" 
+        letter-spacing="1.5" 
+        fill="#081D58">CLONE</text>
+</svg>
