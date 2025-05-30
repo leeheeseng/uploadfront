@@ -42,7 +42,7 @@ const Breadcrumb = ({
   useEffect(() => {
     if (bookId) {
       // API 호출 예시 (책 정보를 가져오는 부분)
-      axios.get(`http://localhost:8080/api/detail/${bookId}`)
+      axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/detail/${bookId}`)
         .then(response => {
           setBookData(response.data);
         })

@@ -32,7 +32,7 @@ export const CategoryProvider = ({ children }) => {
       }
 
       try {
-        const response = await axios.get("http://localhost:8080/api/categories");
+        const response = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/categories`);
         setCategories(response.data);
         saveCategoriesToStorage(response.data);
         console.log("🔄 서버에서 가져와 로컬스토리지에 저장함");

@@ -58,7 +58,7 @@ const LoginMenu = () => {
     setIsLoading(true);
 
     try {
-      const response = await axios.post('http://localhost:8080/api/member/login', {
+      const response = await axios.post(`${process.env.REACT_APP_API_BASE_URL}/api/member/login`, {
         userId: inputs.username,  // 서버 DTO 기준으로 userId로 보냄
         password: inputs.password
       });

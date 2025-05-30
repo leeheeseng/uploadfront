@@ -11,7 +11,7 @@ const Main = () => {
   useEffect(() => {
     const fetchBooks = async () => {
       try {
-        const response = await axios.get('http://localhost:8080/api/detail/category-products', {
+        const response = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/detail/category-products`, {
           params: {
             page: 0,
             size: 20,
@@ -27,7 +27,7 @@ const Main = () => {
 
     const fetchEvents = async () => {
       try {
-        const response = await axios.get('http://localhost:8080/api/events/ONGOING');
+        const response = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/events/ONGOING`);
         setEvents(response.data);  // 리스트 그대로 세팅
       } catch (error) {
         console.error('이벤트 데이터를 불러오는 중 에러 발생:', error);

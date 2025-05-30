@@ -10,14 +10,14 @@ const OrderList = () => {
 
   const fetchOrders = async () => {
     try {
-      const response = await axios.get(`http://localhost:8080/api/purchases/${memberId}`, {
+      const response = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/purchases/${memberId}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setOrders(response.data);
 
       const bookIds = [...new Set(response.data.map(order => order.bookId))];
       const bookDetailPromises = bookIds.map(id =>
-        axios.get(`http://localhost:8080/api/detail/${id}`, {
+        axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/detail/${id}`, {
           headers: { Authorization: `Bearer ${token}` }
         })
       );
@@ -46,7 +46,7 @@ const OrderList = () => {
         .filter(order => new Date(order.purchaseDate).toLocaleDateString('ko-KR') === orderDate)
         .map(order => order.purchaseId);
 
-      const response = await axios.delete(`http://localhost:8080/api/purchases/delete`, {
+      const response = await axios.delete(`${process.env.REACT_APP_API_BASE_URL}/api/purchases/delete`, {
         data: {
           purchaseIds: purchaseIds,
           memberId: memberId

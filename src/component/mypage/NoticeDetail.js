@@ -11,7 +11,7 @@ const NoticeDetail = () => {
   useEffect(() => {
     const fetchNotice = async () => {
       try {
-        const response = await axios.get(`http://localhost:8080/api/notices/${id}`, {
+        const response = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/notices/${id}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setNotice(response.data);

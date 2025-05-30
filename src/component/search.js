@@ -29,7 +29,7 @@ const SearchProductList = () => {
       setError(null);
       try {
         // 쿼리 파라미터가 title인지 author인지에 따라 적절한 파라미터 전달
-        const response = await axios.get('http://localhost:8080/api/detail/search', {
+        const response = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/detail/search`, {
           params: {
             [type]: query, // 'type'에 따라 'title' 또는 다른 필터 사용
             page: Math.max(0, currentPage - 1),
@@ -82,7 +82,7 @@ const SearchProductList = () => {
       return;
     }
     try {
-      const response = await axios.post('http://localhost:8080/api/cart/batch', {
+      const response = await axios.post(`${process.env.REACT_APP_API_BASE_URL}/api/cart/batch`, {
         memberId,
         bookIds: selectedProducts,
       });

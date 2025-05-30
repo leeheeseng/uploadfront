@@ -33,7 +33,7 @@ const Cart = () => {
       return;
     }
     try {
-      const response = await axios.get(`http://localhost:8080/api/cart/${memberId}/books`, {
+      const response = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/cart/${memberId}/books`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       const cartWithDefaults = response.data.map(book => {
@@ -59,7 +59,7 @@ const Cart = () => {
 
   const updateCartQuantityOnServer = async (cartId, quantity) => {
     try {
-      const response = await axios.put(`http://localhost:8080/api/cart/${cartId}`, { quantity }, {
+      const response = await axios.put(`${process.env.REACT_APP_API_BASE_URL}/api/cart/${cartId}`, { quantity }, {
         headers: { Authorization: `Bearer ${token}` }
       });
       return response;
@@ -71,7 +71,7 @@ const Cart = () => {
 
   const deleteMultipleCartItemsFromServer = async (ids) => {
     try {
-      await axios.delete(`http://localhost:8080/api/cart/batch`, {
+      await axios.delete(`${process.env.REACT_APP_API_BASE_URL}/api/cart/batch`, {
         headers: { Authorization: `Bearer ${token}` },
         data: ids
       });
@@ -143,7 +143,7 @@ const Cart = () => {
         purchaseDate: new Date().toISOString()
       }));
       const response = await axios.post(
-        `http://localhost:8080/api/purchases`,
+        `${process.env.REACT_APP_API_BASE_URL}/api/purchases`,
         orderPayload,
         { headers: { Authorization: `Bearer ${token}` } }
       );

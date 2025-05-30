@@ -57,7 +57,7 @@ const CategoryProductList = () => {
       setIsLoading(true);
       setError(null);
       try {
-        let url = `http://localhost:8080/api/detail/category-products`;
+        let url = `${process.env.REACT_APP_API_BASE_URL}/api/detail/category-products`;
         const params = {
           page: Math.max(0, currentPage - 1),
           size: itemsPerPage
@@ -119,7 +119,7 @@ const CategoryProductList = () => {
     }
 
     try {
-      const response = await axios.post('http://localhost:8080/api/cart/batch', {
+      const response = await axios.post(`${process.env.REACT_APP_API_BASE_URL}/api/cart/batch`, {
         memberId: memberId,
         bookIds: selectedProducts,
       });

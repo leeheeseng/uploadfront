@@ -19,8 +19,8 @@ const BookDetail = () => {
       setError(null);
 
       const [bookResponse, reviewsResponse] = await Promise.all([
-        axios.get(`http://localhost:8080/api/detail/${bookId}`),
-        axios.get(`http://localhost:8080/api/detail/${bookId}/reviews`)
+        axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/detail/${bookId}`),
+        axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/detail/${bookId}/reviews`)
       ]);
 
       setBookData(bookResponse.data);
@@ -55,7 +55,7 @@ const BookDetail = () => {
     }
 
     try {
-      const response = await axios.post(`http://localhost:8080/api/detail/${bookId}/reviews`, {
+      const response = await axios.post(`${process.env.REACT_APP_API_BASE_URL}/api/detail/${bookId}/reviews`, {
         bookId: parseInt(bookId),
         memberId: parseInt(memberId),
         rating: rating,
@@ -93,7 +93,7 @@ const BookDetail = () => {
         quantity: 1
       };
 
-      const response = await axios.post("http://localhost:8080/api/cart", cartItem);
+      const response = await axios.post(`${process.env.REACT_APP_API_BASE_URL}/api/cart`, cartItem);
       alert("장바구니에 추가되었습니다!");
       console.log("장바구니 추가 완료:", response.data);
     } catch (err) {

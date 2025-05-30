@@ -12,7 +12,7 @@ const EventDetail = () => {
     useEffect(() => {
         const fetchEventDetails = async () => {
             try {
-                const response = await axios.get(`http://localhost:8080/api/events/${id}`);
+                const response = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/events/${id}`);
                 console.log("받아온 이벤트 데이터:", response.data); // 받아온 데이터 콘솔에 출력
                 setEvent(response.data); // API로부터 데이터를 받아서 상태 업데이트
             } catch (error) {

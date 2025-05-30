@@ -65,7 +65,7 @@ const CategoryProductnewList = () => {
       setError(null);
 
       try {
-        let url = `http://localhost:8080/api/detail/category-products`;
+        let url = `${process.env.REACT_APP_API_BASE_URL}/api/detail/category-products`;
         const params = { 
           page: Math.max(0, currentPage - 1),
           size: itemsPerPage
@@ -158,7 +158,7 @@ const CategoryProductnewList = () => {
     }
   
     try {
-      const response = await axios.post('http://localhost:8080/api/cart/batch', {
+      const response = await axios.post(`${process.env.REACT_APP_API_BASE_URL}/api/cart/batch`, {
         memberId: memberId,       // memberId 추가
         bookIds: selectedProducts, // 선택된 상품 ID 목록
       });
