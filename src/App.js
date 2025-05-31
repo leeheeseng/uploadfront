@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import Mainpage from './pages/mainpage';
 import BestPage from './pages/bastpage';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { HashRouter  as Router, Route, Routes } from 'react-router-dom';
 import NewPage from './pages/new';
 import Category from './pages/midlecategory';
 import Smallcategory from './pages/smallcatagory';
