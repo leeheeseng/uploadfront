@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/static/css/main.ea319918.css",
+    "main.js": "/static/js/main.32277bca.js",
+    "static/js/453.80efc53e.chunk.js": "/static/js/453.80efc53e.chunk.js",
+    "static/media/default-book.png": "/static/media/default-book.db17455e6cd98939d153.png",
+    "static/media/PC_QM_06_svg": "/static/media/PC_QM_06_38c389abadd8409ab7356a08d73eaa8a.790640fa085e5addfbe2.svg",
+    "static/media/PC_QM_08_svg": "/static/media/PC_QM_08_2c2d5f1900c04cd4bd9a81a0b4d8cb0f.e177cf8e9045cd900a84.svg",
+    "static/media/PC_QM_02_svg": "/static/media/PC_QM_02_64cc0909aafa42dfb07ed5ba786d2875.ae7eea86b973127a1493.svg",
+    "static/media/PC_QM_03_svg": "/static/media/PC_QM_03_3097e05a6c804aaf95e5ac16317cff4d.4bb6ec3583a5ac0b9044.svg",
+    "static/media/PC_QM_09_svg": "/static/media/PC_QM_09_a3d9d3b714b046278577fdede2372c46.07dcb4c95cba670ae3b0.svg",
+    "static/media/PC_QM_10_svg": "/static/media/PC_QM_10_7604f58055704a0d945335ea2d3d0580.056f0257bbc5041af192.svg",
+    "static/media/PC_QM_05_svg": "/static/media/PC_QM_05_49332438b774409d9f20bf4a846be7fc.e31202609bf87f21ca41.svg",
+    "static/media/PC_QM_01_svg": "/static/media/PC_QM_01_a02268569d1046d5ae3b8569b4893bba.f3507e85e3ff53cce9c3.svg",
+    "static/media/PC_QM_07_svg": "/static/media/PC_QM_07_9de19a2c196a45249134c640da579fb9.d8c0297bd55a95afba7a.svg",
+    "static/media/PC_QM_04_svg": "/static/media/PC_QM_04_0a2ae2abff884ee6b78437e2aaa8b786.c5d2e04920a200589a2c.svg",
+    "static/media/img_service_mall_tab_white (1).svg": "/static/media/img_service_mall_tab_white (1).dd91aa4bb0f2b545c1f5.svg",
+    "index.html": "/index.html",
+    "static/media/logo_book.svg": "/static/media/logo_book.2ec1e68ccadf106d7fdca9ec08209efe.svg",
+    "static/media/img_service_mall_tab.svg": "/static/media/img_service_mall_tab.776c33892bfff7908621.svg",
+    "static/media/dwonload.svg": "/static/media/dwonload.dab5b9739662b4b5461c.svg",
+    "main.ea319918.css.map": "/static/css/main.ea319918.css.map",
+    "main.32277bca.js.map": "/static/js/main.32277bca.js.map",
+    "453.80efc53e.chunk.js.map": "/static/js/453.80efc53e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ea319918.css",
+    "static/js/main.32277bca.js"
+  ]
+}
