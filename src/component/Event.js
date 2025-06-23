@@ -17,7 +17,7 @@ const EventPage = () => {
     useEffect(() => {
         const fetchEvents = async () => {
             try {
-                const response = await axios.get('/api/events', {
+                const response = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/events`, {
                     params: {
                         page: 0,
                         size: 1000
